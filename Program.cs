@@ -267,68 +267,107 @@
 	// 18 20
 	// 15 18
 	
-	 int rows = ReadInt("Введите количество строк матрицы 1: ");
-	 int columns = ReadInt("Введите количество столбцов матрицы 1: ");
-     int rows1 = ReadInt("Введите количество строк матрицы 2: ");
-	 int columns1 = ReadInt("Введите количество столбцов матрицы 2: ");
-	 int[,] array = new int[rows, columns];
-	 int[,] secondArray = new int[rows1, columns1];
-	 int[,] resultArray = new int[rows, columns];
+	//  int rows = ReadInt("Введите количество строк матрицы 1: ");
+	//  int columns = ReadInt("Введите количество столбцов матрицы 1: ");
+    //  int rows1 = ReadInt("Введите количество строк матрицы 2: ");
+	//  int columns1 = ReadInt("Введите количество столбцов матрицы 2: ");
+	//  int[,] array = new int[rows, columns];
+	//  int[,] secondArray = new int[rows1, columns1];
+	//  int[,] resultArray = new int[rows, columns];
 	
-	FillArray(array);
-	PrintArray(array);
+	// FillArray(array);
+	// PrintArray(array);
 
-	Console.WriteLine();
+	// Console.WriteLine();
 
-	FillArray(secondArray);
-	PrintArray(secondArray);
+	// FillArray(secondArray);
+	// PrintArray(secondArray);
 	
-	Console.WriteLine();
+	// Console.WriteLine();
 	
-	if (array.GetLength(0) != secondArray.GetLength(1))
-	{
-	    Console.WriteLine("Матрицы нельзя перемножить ");
-	    return;
-	}
-	for (int i = 0; i < array.GetLength(0); i++)
-	{
-	    for (int j = 0; j < secondArray.GetLength(1); j++)
-	    {
-	        resultArray[i, j] = 0;
-	        for (int k = 0; k < array.GetLength(1); k++)
-	        {
-	            resultArray[i, j] += array[i, k] * secondArray[k, j];
-	        }
-	    }
-	}
+	// if (array.GetLength(0) != secondArray.GetLength(1))
+	// {
+	//     Console.WriteLine("Матрицы нельзя перемножить ");
+	//     return;
+	// }
+	// for (int i = 0; i < array.GetLength(0); i++)
+	// {
+	//     for (int j = 0; j < secondArray.GetLength(1); j++)
+	//     {
+	//         resultArray[i, j] = 0;
+	//         for (int k = 0; k < array.GetLength(1); k++)
+	//         {
+	//             resultArray[i, j] += array[i, k] * secondArray[k, j];
+	//         }
+	//     }
+	// }
 	
-	PrintArray(resultArray);
+	// PrintArray(resultArray);
 	
-	int ReadInt(string message)
-	{
-	    Console.Write(message);
-	    return Convert.ToInt32(Console.ReadLine());
-	}
+	// int ReadInt(string message)
+	// {
+	//     Console.Write(message);
+	//     return Convert.ToInt32(Console.ReadLine());
+	// }
 	
-	void FillArray(int[,] array)
-	{
-	    for (int i = 0; i < array.GetLength(0); i++)
-	    {
-	        for (int j = 0; j < array.GetLength(1); j++)
-	        {
-	            array[i, j] = new Random().Next(1, 10);
-	        }
-	    }
-	}
+	// void FillArray(int[,] array)
+	// {
+	//     for (int i = 0; i < array.GetLength(0); i++)
+	//     {
+	//         for (int j = 0; j < array.GetLength(1); j++)
+	//         {
+	//             array[i, j] = new Random().Next(1, 10);
+	//         }
+	//     }
+	// }
 	
-	void PrintArray(int[,] array)
-	{
-	    for (int i = 0; i < array.GetLength(0); i++)
-	    {
-	        for (int j = 0; j < array.GetLength(1); j++)
-	        {
-	            Console.Write($"{array[i, j]} ");
-	        }
-	        Console.WriteLine();
-	    }
-	}
+	// void PrintArray(int[,] array)
+	// {
+	//     for (int i = 0; i < array.GetLength(0); i++)
+	//     {
+	//         for (int j = 0; j < array.GetLength(1); j++)
+	//         {
+	//             Console.Write($"{array[i, j]} ");
+	//         }
+	//         Console.WriteLine();
+	//     }
+	// }
+// // Задача 64: Задайте значение N. Напишите программу, которая выведет все 
+//натуральные числа в промежутке от N до 1.
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+ 
+// Console.WriteLine ("Введите n: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// int count =1;
+// PrintNumber(n, count);
+ 
+// void PrintNumber(int n, int count)
+// {
+//   if (count > n) return;
+//   PrintNumber(n, count + 1);
+//   Console.Write(count + ", ");
+// }
+
+/*Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму
+ 	натуральных элементов в промежутке от M до N. Выполнить с помощью рекурсии.
+ 	M = 1; N = 15 -> 120
+ 	M = 4; N = 8. -> 30
+ 	*/
+ 	 
+ 	Console.WriteLine("Введите начальное число M:");
+ 	int M = Convert.ToInt32(Console.ReadLine());;
+ 	Console.WriteLine("Введите начальное число N:");
+ 	int N = Convert.ToInt32(Console.ReadLine());;
+ 	 
+ 	void NumberSum ( int M, int N, int sum)
+ 	{
+ 	if (M > N) 
+ 	{
+ 	Console.WriteLine($"Сумма натуральных элементов в промежутке от M до N: {sum}");
+ 	return;
+ 	}
+ 	sum = sum + (M++);
+ 	NumberSum(M, N, sum);
+ 	}
+ 	NumberSum(M, N, 0);
